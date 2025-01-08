@@ -54,3 +54,17 @@ body{
   transition: 0.3s;
   animation: fadeIn 1s;
 }
+
+.place-order input{
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  outline-color: #DC143C;
+}
+
+.multi-valued{
+  display: flex;
+  gap: 10px;
+}

@@ -49,19 +49,19 @@ const Cart = () => {
 
           {/* Amount Section of the Cart */}
           <div>
-            <div className='flex justify-between text-[#555]'>
+          <div className='flex justify-between text-[#555]'>
               <p>Subtotal</p>
               <p>${getTotalCartAmount()}</p>
             </div>
             <hr className='my-2'/>
             <div className='flex justify-between text-[#555]'>
               <p>Delivery Fee</p>
-              <p>${2}</p>
+              <p>${getTotalCartAmount()===0 ? 0:2}</p>
             </div>
             <hr className='my-2'/>
             <div className='flex justify-between font-bold'>
               <b>Total</b>
-              <b>${getTotalCartAmount()+2}</b>
+              <b>${getTotalCartAmount()===0? 0:getTotalCartAmount()+2}</b>
             </div>
           </div>
           <button 
