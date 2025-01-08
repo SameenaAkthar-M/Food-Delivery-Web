@@ -5,9 +5,9 @@ import '../index.css'
 const Menu = ({category,setCategory}) => {
 
   return (
-    <div className='flex flex-col gap-5'>
-      <h1 className='text-[#262626] text-[30px] font-semibold'>Explore our menu</h1>
-      <p className='max-w-[60%] text-[#3e3d3d]'>Every bite tells a story. Explore our carefully curated menu and embark on a culinary journey like no other!</p>
+    <div className='flex flex-col gap-5' id='explore-menu'>
+      <h1 className='text-[#262626] text-[max(2vw,30px)] font-semibold'>Explore our menu</h1>
+      <p className=' text-[#3e3d3d]'>Every bite tells a story. Explore our carefully curated menu and embark on a culinary journey like no other!</p>
       <div className='flex justify-between items-center gap-[30px] text-center mx-[20px] my-[0px] overflow-x-scroll hide-scrollbar'>
         {menu_list.map((item,i)=>{
           return (

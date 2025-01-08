@@ -3,8 +3,8 @@ import { assets } from '../assets/frontend_assets/assets'
 
 const Footer = () => {
   return (
-    <div className='text-[#d9d9d9] bg-[#a2102d] flex flex-col items-center gap-[20px] px-[20px] py-[80px] pt-[8vw] mt-[100px]'>
-      <div className='w-full grid grid-cols-[2fr_1fr_1fr] gap-[60px]'>
+    <div className='text-[#d9d9d9] bg-[#a2102d] flex flex-col items-center gap-[20px] px-[20px] py-[80px] pt-[8vw] mt-[100px]' id='contact-us'>
+      <div className='w-full grid lg:grid-cols-[2fr_1fr_1fr] gap-[60px] grid-cols-1 md:gap-[35px]'>
         {/* Footer Left */}
         <div className='flex flex-col items-start gap-[20px]'>
           <img src={assets.logo} alt="" />
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
       </div>
       <hr className='w-full h-[2px] mx-[20px] my-0 bg-gray-300 border-none'/>
-      <p>Copyright 2025 © ChowTime.com - All Right Reserved.</p>
+      <p className='text-center lg:text-center'>Copyright 2025 © ChowTime.com - All Right Reserved.</p>
     </div>
   )
 }

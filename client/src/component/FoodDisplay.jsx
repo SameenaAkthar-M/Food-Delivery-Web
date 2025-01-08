@@ -7,7 +7,7 @@ const FoodDisplay = ({category}) => {
 
   return (
     <div className='mt-[30px]'>
-      <h2 className='text-[max(2vw,24px)] font-semibold'>Top dishes near you</h2>
+      <h2 className='text-[max(2vw,30px)] font-semibold'>Top dishes near you</h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px] mt-[30px] row-gap-[50px]'>
         {food_list.map((item,i)=>{
           if(category=="All" || category===item.category){
