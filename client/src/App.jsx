@@ -7,6 +7,8 @@ import Menu from './pages/Menu'
 import Placeorder from './pages/Placeorder'
 import Footer from './component/Footer'
 import Loginpopup from './component/Loginpopup'
+import PaymentSuccess from './pages/PaymentSuccess'
+
 
 const App = () => {
   const [showLogin,setShowLogin]=useState(false);
@@ -26,6 +28,7 @@ const App = () => {
           <Route 
           path='/order' 
           element={<Placeorder/>}/>
+          <Route path="/payment-success" element={<PaymentSuccess />} />
         </Routes>
       </div>
       <Footer/>

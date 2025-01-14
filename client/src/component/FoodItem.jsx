@@ -4,14 +4,14 @@ import { StoreContext } from '../context/StoreContext';
 
 const FoodItem = ({id,name,price,description,image}) => {
 
-  const {cartItems,addToCart,removeFromCart}=useContext(StoreContext)
+  const {cartItems,addToCart,removeFromCart,url}=useContext(StoreContext)
 
   return (
     <div className='w-[100%] m-auto rounded-[15px] shadow-[0px_0px_10px_#00000015] animating'>
       <div className='relative'>
         <img 
           className='w-[100%] rounded-[15px_15px_0px_0px]' 
-          src={image}/>
+          src={url+"/images/"+image}/>
         {
           !cartItems[id] ? <img className='w-[35px] absolute bottom-[15px] right-[15px] cursor-pointer rounded-[50%]' onClick={()=>addToCart(id)} src={assets.add_icon_white}/>: <div className='absolute bottom-[15px] right-[15px] flex items-center gap-[10px] p-[6px] rounded-[50px] bg-white'>
             <img 

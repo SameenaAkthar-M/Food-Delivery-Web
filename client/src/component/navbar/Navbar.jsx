@@ -2,13 +2,20 @@ import React, { useContext, useState } from 'react'
 import {assets} from '../../assets/frontend_assets/assets.js'
 import { FiSearch } from "react-icons/fi";
 import { PiBasketFill } from "react-icons/pi";
-import {Link, Links} from 'react-router-dom'
+import {Link, Links, useNavigate} from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext.jsx';
 
 const Navbar = ({setShowLogin}) => {
 
   const [menu,setMenu]=useState("Home");
-  const {getTotalCartAmount}=useContext(StoreContext)
+  const {getTotalCartAmount,token,setToken}=useContext(StoreContext)
+  const navigate=useNavigate();
+
+  const logout=()=>{
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/")
+  }
 
   return (
     <div className="flex justify-between items-center lg:flex-row lg:justify-between lg:items-center mt-3">
@@ -39,9 +46,15 @@ const Navbar = ({setShowLogin}) => {
             getTotalCartAmount() === 0 ? "hidden" : "show"}`}></div>
           </Link>
         </div>
-        <button 
+        {!token?<button 
           onClick={()=>setShowLogin(true)} 
-          className="text-sm border-2 border-[#DC143C] px-4 py-2 rounded-3xl hover:bg-[#DC143C] hover:text-white transition-colors duration-400 lg:text-base md:px-5 md:py-2 md:text-sm sm:px-4 sm:py-1 sm:text-xs">Sign in</button>
+          className="text-sm border-2 border-[#DC143C] px-4 py-2 rounded-3xl hover:bg-[#DC143C] hover:text-white transition-colors duration-400 lg:text-base md:px-5 md:py-2 md:text-sm sm:px-4 sm:py-1 sm:text-xs">Sign in</button>:<div className='relative navbar-profile'><img src={assets.profile_icon} className='cursor-pointer' alt="" />
+          <ul className='absolute hidden nav-profile-dropdown'>
+            <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+            <hr/>
+            <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+          </ul>
+          </div>}
       </div>
     </div>
   )
