@@ -3,7 +3,7 @@ import React from 'react'
 const PaymentSuccess = () => {
   return (
     <div>
-      Payment is Successfull
+      <p>Payment is Successfull</p>
     </div>
   )
 }

@@ -1,10 +1,13 @@
-import {useState,} from 'react'
+import {useEffect, useState,} from 'react'
 import { StoreContext } from '../context/StoreContext'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Placeorder = () => {
   const navigate=useNavigate();
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
   const {getTotalCartAmount,token,food_list,cartItems,url}=useContext(StoreContext)
   const [data,setData]=useState({
     firstName:"",
@@ -37,7 +40,7 @@ const Placeorder = () => {
     let orderData={
       address:data,
       items:orderItems,
-      amount:getTotalCartAmount()+2,
+      amount:getTotalCartAmount()+2
     }
     let res=await axios.post(url+"/api/order/place",orderData,{headers:{token}});
     if(res.data.success){
@@ -47,6 +50,19 @@ const Placeorder = () => {
       alert("Error");
     }
   }
+
+  const handleClick=()=>{
+    navigate('/payment-success');
+  }
+
+  useEffect(()=>{
+    if(!token){
+      navigate('/cart');
+    }
+    else if(getTotalCartAmount()===0){
+      navigate('/cart');
+    }
+  },[token])
 
   return (
     <form onSubmit={placeOrder} className='flex items-start justify-between gap-[50px] mt-[100px]'>
@@ -91,8 +107,12 @@ const Placeorder = () => {
               <b>${getTotalCartAmount()===0? 0:getTotalCartAmount()+2}</b>
             </div>
           </div>
-          <button type='submit'
-            className='border-none text-white bg-[#DC143C] w-[max(15vw,200px)] py-3 rounded-[4px] cursor-pointer mt-[30px]'>PROCEED TO PAYMENT</button>
+          <button
+            type="submit"
+            className='border-none text-white w-[max(15vw,200px)] py-3 rounded-[4px] cursor-pointer mt-[30px] bg-[#DC143C]'
+          >
+            PROCEED TO PAYMENT
+          </button>
         </div>
       </div>
     </form>

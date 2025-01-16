@@ -26,8 +26,8 @@ const Cart = () => {
         {/* Food items which are added */}
         {food_list.map((item,i)=>{
           if(cartItems[item._id]>0){
-            return <div>
-              <div key={item._id} className='grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center 
+            return <div key={item._id}>
+              <div className='grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center 
               my-[10px] text-black'>
               <img className='w-[50px]' src={url+"/images/"+item.image}/>
               <p>{item.name}</p>

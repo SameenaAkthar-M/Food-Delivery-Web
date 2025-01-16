@@ -69,7 +69,11 @@ body{
   gap: 10px;
 }
 
-.navbar-profile:hover .nav-profile-dropdown{
+.navbar-profile {
+  position: relative; /* Ensure the dropdown is positioned correctly */
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -80,6 +84,13 @@ body{
   outline: 2px solid white;
   list-style: none;
   z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.nav-profile-dropdown {
+  display: none; /* Initially hide the dropdown */
 }
 
 .nav-profile-dropdown li{
@@ -95,4 +106,15 @@ body{
 
 .nav-profile-dropdown li:hover{
   color: #DC143C;
+}
+
+@media (max-width: 900px) {
+  .my-orders-order {
+    grid-template-columns: 1fr 2fr 1fr;
+    row-gap: 5px;
+    font-size: 12px;
+  }
+  .my-orders-order button{
+    font-size: 10px;
+  }
 }

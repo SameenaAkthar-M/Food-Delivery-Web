@@ -8,6 +8,7 @@ import Placeorder from './pages/Placeorder'
 import Footer from './component/Footer'
 import Loginpopup from './component/Loginpopup'
 import PaymentSuccess from './pages/PaymentSuccess'
+import Myorders from './pages/Myorders'
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           path='/order' 
           element={<Placeorder/>}/>
           <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/myorders" element={<Myorders/>}></Route>
         </Routes>
       </div>
       <Footer/>

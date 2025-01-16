@@ -48,9 +48,9 @@ const Navbar = ({setShowLogin}) => {
         </div>
         {!token?<button 
           onClick={()=>setShowLogin(true)} 
-          className="text-sm border-2 border-[#DC143C] px-4 py-2 rounded-3xl hover:bg-[#DC143C] hover:text-white transition-colors duration-400 lg:text-base md:px-5 md:py-2 md:text-sm sm:px-4 sm:py-1 sm:text-xs">Sign in</button>:<div className='relative navbar-profile'><img src={assets.profile_icon} className='cursor-pointer' alt="" />
-          <ul className='absolute hidden nav-profile-dropdown'>
-            <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+          className="text-sm border-2 border-[#DC143C] px-4 py-2 rounded-3xl hover:bg-[#DC143C] hover:text-white transition-colors duration-400 lg:text-base md:px-5 md:py-2 md:text-sm sm:px-4 sm:py-2 sm:text-xs">Sign in</button>:<div className='navbar-profile'><img src={assets.profile_icon} className='cursor-pointer' alt="" />
+          <ul className='nav-profile-dropdown'>
+            <li onClick={()=>navigate('/myorders')}><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
             <hr/>
             <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
           </ul>
